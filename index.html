@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Absensi Kelas VIII A</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0f6b57">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f2f5f3; --card:#ffffff; --text:#14302b; --muted:#5d746e; --line:#d9e3df;
+  --accent:#0f6b57; --accent-ink:#ffffff; --soft:#e4efeb;
+  --h:#1f9d6b; --s:#2f7fd1; --i:#d99a1b; --a:#d6453d;
+  --h-bg:#dff3ea; --s-bg:#e1ecfa; --i-bg:#faefd2; --a-bg:#fbe0de;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1a17; --card:#16252190; --card:#162521; --text:#e3efeb; --muted:#8fa8a1; --line:#27403a;
+    --accent:#3cc19f; --accent-ink:#06211b; --soft:#1d332d;
+    --h-bg:#143c2d; --s-bg:#16314f; --i-bg:#4a3a10; --a-bg:#4d1f1c;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1a17; --card:#162521; --text:#e3efeb; --muted:#8fa8a1; --line:#27403a;
+  --accent:#3cc19f; --accent-ink:#06211b; --soft:#1d332d;
+  --h-bg:#143c2d; --s-bg:#16314f; --i-bg:#4a3a10; --a-bg:#4d1f1c;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:15px;line-height:1.45;-webkit-text-size-adjust:100%}
+button,input,select{font:inherit;color:inherit}
+.wrap{max-width:720px;margin:0 auto;padding:12px 12px 90px}
+header.top{padding:6px 4px 10px}
+header.top h1{margin:0;font-size:21px;font-weight:800;letter-spacing:-.01em}
+header.top p{margin:2px 0 0;color:var(--muted);font-size:13px}
+.tabs{display:flex;gap:6px;background:var(--soft);padding:4px;border-radius:12px;position:sticky;top:env(safe-area-inset-top,0px);z-index:5;margin-bottom:12px}
+.tabs button{flex:1;border:0;background:transparent;padding:10px 6px;border-radius:9px;font-weight:700;color:var(--muted);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--card);color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;margin-bottom:12px}
+.row{display:flex;gap:8px;align-items:center}
+.row.wrapx{flex-wrap:wrap}
+.grow{flex:1}
+.btn{border:1px solid var(--line);background:var(--card);padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer;min-height:44px}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.wa{background:#1fa855;color:#fff;border-color:#1fa855}
+.btn.small{padding:6px 10px;min-height:36px;font-size:13px}
+.btn:active{transform:scale(.98)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+input[type=date],input[type=text],input[type=tel],select{width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--card);min-height:44px}
+label.f{display:block;font-size:12.5px;color:var(--muted);font-weight:600;margin:8px 0 3px}
+.datebar{display:flex;gap:6px;align-items:center}
+.datebar .btn{width:44px;padding:0}
+.dayname{font-weight:800;font-size:17px;margin:10px 0 2px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.chip{padding:5px 10px;border-radius:99px;font-weight:700;font-size:13px}
+.chip.h{background:var(--h-bg);color:var(--h)} .chip.s{background:var(--s-bg);color:var(--s)}
+.chip.i{background:var(--i-bg);color:var(--i)} .chip.a{background:var(--a-bg);color:var(--a)}
+.chip.n{background:var(--soft);color:var(--muted)}
+.stu{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--line)}
+.stu:last-child{border-bottom:0}
+.stu .no{width:24px;color:var(--muted);font-size:12.5px;text-align:right;flex:none}
+.stu .nm{flex:1;font-weight:600;font-size:13.5px;line-height:1.25;min-width:0}
+.stu .bt{display:flex;gap:5px;flex:none}
+.stu .bt button{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--line);background:transparent;font-weight:800;color:var(--muted);cursor:pointer;padding:0}
+.stu .bt button.on[data-s="H"]{background:var(--h);border-color:var(--h);color:#fff}
+.stu .bt button.on[data-s="S"]{background:var(--s);border-color:var(--s);color:#fff}
+.stu .bt button.on[data-s="I"]{background:var(--i);border-color:var(--i);color:#fff}
+.stu .bt button.on[data-s="A"]{background:var(--a);border-color:var(--a);color:#fff}
+.libur-note{padding:14px;text-align:center;color:var(--muted);font-weight:600}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.actions .full{grid-column:1/-1}
+.legend{font-size:12.5px;color:var(--muted)}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card);max-width:100%}
+table.rk{border-collapse:separate;border-spacing:0;font-size:12px;min-width:100%}
+table.rk th,table.rk td{padding:5px 4px;text-align:center;border-bottom:1px solid var(--line);border-right:1px solid var(--line);white-space:nowrap}
+table.rk th{background:var(--soft);font-weight:700;position:sticky;top:0}
+table.rk td.n,table.rk th.n{position:sticky;left:0;background:var(--card);text-align:left;min-width:150px;max-width:150px;overflow:hidden;text-overflow:ellipsis;z-index:2;font-weight:600}
+table.rk th.n{background:var(--soft);z-index:3}
+table.rk td.sun,table.rk th.sun{background:var(--a-bg)}
+table.rk td.lib,table.rk th.lib{background:var(--soft);color:var(--muted)}
+.c-H{color:var(--h);font-weight:700}.c-S{color:var(--s);font-weight:800}.c-I{color:var(--i);font-weight:800}.c-A{color:var(--a);font-weight:800}
+.tot{font-weight:800}
+.sumlist .it{display:flex;justify-content:space-between;gap:8px;padding:7px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+.sumlist .it:last-child{border-bottom:0}
+.sumlist .it b{font-weight:700}
+.pill{font-weight:700;font-size:12.5px;white-space:nowrap}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--text);color:var(--bg);padding:10px 16px;border-radius:99px;font-weight:700;font-size:13.5px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:20;max-width:90%}
+.toast.show{opacity:1}
+details summary{cursor:pointer;font-weight:700;padding:4px 0}
+.hide{display:none!important}
+@media print{
+  .tabs,.actions,.no-print,header.top p{display:none!important}
+  body{background:#fff;color:#000}
+  .wrap{max-width:none;padding:0}
+  .tw{overflow:visible;border:0}
+  table.rk td.n,table.rk th.n{position:static}
+  .card{border:0;padding:0}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>Absensi Kelas VIII A</h1>
+    <p>Semester Ganjil · Tahun Pelajaran 2026/2027 · 38 siswa</p>
+  </header>
+
+  <div class="tabs no-print" role="tablist">
+    <button role="tab" id="t-harian" aria-selected="true">Harian</button>
+    <button role="tab" id="t-rekap" aria-selected="false">Rekap Bulanan</button>
+    <button role="tab" id="t-atur" aria-selected="false">Pengaturan</button>
+  </div>
+
+  <!-- HARIAN -->
+  <section id="v-harian">
+    <div class="card">
+      <div class="datebar">
+        <button class="btn" id="prevDay" aria-label="Hari sebelumnya">‹</button>
+        <input type="date" id="dateIn" aria-label="Tanggal">
+        <button class="btn" id="nextDay" aria-label="Hari berikutnya">›</button>
+      </div>
+      <div class="dayname" id="dayName"></div>
+      <div class="chips" id="chips"></div>
+      <div class="row wrapx">
+        <button class="btn small" id="allH">Semua hadir</button>
+        <button class="btn small" id="resetDay">Kosongkan</button>
+        <button class="btn small" id="liburBtn">Tandai libur</button>
+      </div>
+      <div class="legend" style="margin-top:8px">H = Hadir · S = Sakit · I = Izin · A = Alpha (tanpa keterangan)</div>
+    </div>
+
+    <div class="card" id="listCard"><div id="list"></div></div>
+
+    <div class="card">
+      <div class="actions">
+        <button class="btn wa full" id="sendWA">Kirim siswa tidak masuk ke WhatsApp</button>
+        <button class="btn" id="copyDay">Salin pesan</button>
+        <button class="btn" id="previewDay">Lihat pesan</button>
+      </div>
+      <pre id="preview" class="hide" style="white-space:pre-wrap;font-family:inherit;font-size:13px;background:var(--soft);padding:10px;border-radius:10px;margin:10px 0 0"></pre>
+    </div>
+  </section>
+
+  <!-- REKAP -->
+  <section id="v-rekap" class="hide">
+    <div class="card no-print">
+      <div class="datebar">
+        <button class="btn" id="prevMon" aria-label="Bulan sebelumnya">‹</button>
+        <select id="monSel" aria-label="Bulan"></select>
+        <button class="btn" id="nextMon" aria-label="Bulan berikutnya">›</button>
+      </div>
+    </div>
+    <div class="card">
+      <div style="font-weight:800;font-size:17px" id="rkTitle"></div>
+      <div class="legend" id="rkInfo"></div>
+      <div class="chips" id="rkChips"></div>
+    </div>
+    <div class="tw"><table class="rk" id="rkTable"></table></div>
+    <div class="card" style="margin-top:12px">
+      <div style="font-weight:800;margin-bottom:4px">Ringkasan per siswa</div>
+      <div class="sumlist" id="sumList"></div>
+    </div>
+    <div class="card no-print">
+      <div class="actions">
+        <button class="btn wa full" id="sendRk">Kirim rekap bulan ini ke WhatsApp</button>
+        <button class="btn" id="copyRk">Salin rekap</button>
+        <button class="btn" id="csvRk">Unduh CSV</button>
+        <button class="btn full" id="printRk">Cetak / simpan PDF</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PENGATURAN -->
+  <section id="v-atur" class="hide">
+    <div class="card">
+      <label class="f" for="mapel" style="margin-top:0">Mata pelajaran</label>
+      <input type="text" id="mapel" placeholder="mis. IPA">
+      <label class="f" for="guru">Nama guru</label>
+      <input type="text" id="guru" placeholder="Nama guru mata pelajaran">
+      <label class="f" for="wa">Nomor WhatsApp tujuan (opsional)</label>
+      <input type="tel" id="wa" inputmode="numeric" placeholder="mis. 6281234567890">
+      <div class="legend" style="margin-top:6px">Isi dengan awalan 62 tanpa tanda + atau 0. Jika dikosongkan, WhatsApp akan meminta Anda memilih kontak atau grup (mis. wali kelas atau grup guru) saat kirim.</div>
+    </div>
+    <div class="card">
+      <details>
+        <summary>Cadangkan &amp; pulihkan data</summary>
+        <p class="legend">Data tersimpan di browser ini. Unduh cadangan agar aman jika data browser terhapus atau ingin pindah HP.</p>
+        <div class="actions">
+          <button class="btn" id="exp">Unduh cadangan</button>
+          <button class="btn" id="impBtn">Pulihkan cadangan</button>
+        </div>
+        <input type="file" id="impFile" accept=".json,application/json" class="hide">
+        <button class="btn small" id="wipe" style="margin-top:10px;color:var(--a)">Hapus semua data absensi</button>
+      </details>
+    </div>
+  </section>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function(){
+  var STUDENTS = [
+    "ABDUL QODIR AL JAELANI","AFIQA QALIFAH PUTRI","AHMAD ASLAM ATHAULLAH","AKMAL ZAKKI SHALLI JUNATA",
+    "ALYA ZAHFIRA","AMIRAH TAQIYYAH","ELIZA HAQ","FAIZA PUTRI ALISHA","FATAHILLAH NUR REZKYANTO",
+    "GALIH FERDINAN","HATIM SYATHIR AL-MUSTANIR","ILHAM WIBISANA","KEISHA ISIKA ELRUSH",
+    "M. ADITYA RIFQI HAMIZAN","M. AZKA PRATAMA","MAHARDHIKA KAMIL FANOBI","MUHAMMAD AKHTARU DZIKRI",
+    "MUHAMMAD ALIF MAULANA","MUHAMMAD ALTHAFFUR FAQIH","MUHAMMAD RIZQI","M. WILLY SAPUTRA",
+    "MUTIA ALYA MUKHBITA","NANINTA NOVRIA","NAUFAL SAPUTRA","NAUVAL AZKA PRADITA",
+    "NUGRAHA HANIF RIZQULLAH","RA. RIZKY DEVIANI","RIDHO FATHUR RAHMAN","RIZALUDDIN",
+    "ROBIATUL ADAWIYAH","SABRINA AZAHWA","THALAYA NAZHIIFAH","YUDHA MUHAMMAD QOIF",
+    "DEKO TIO SANJAYA","BILQIS AULIA","KANZA TRI PUTRA RAMADHAN","IKRAM AL JABBAR","FATHIR NABHAN"
+  ];
+  var HARI = ["Ahad","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"];
+  var BULAN = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+  var KEY = "absensi-viii-a-v1";
+  var state = {meta:{mapel:"",guru:"",wa:""}, att:{}, libur:{}};
+  try{
+    var raw = localStorage.getItem(KEY);
+    if(raw){ var p = JSON.parse(raw); if(p && p.att){ state = p; state.meta = state.meta||{mapel:"",guru:"",wa:""}; state.libur = state.libur||{}; } }
+  }catch(e){}
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
+
+  function $(id){return document.getElementById(id);}
+  function pad(n){return (n<10?"0":"")+n;}
+  function ds(d){return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());}
+  function parse(s){var a=s.split("-");return new Date(+a[0],+a[1]-1,+a[2]);}
+  function longDate(d){return HARI[d.getDay()]+", "+d.getDate()+" "+BULAN[d.getMonth()]+" "+d.getFullYear();}
+  function toast(t){var el=$("toast");el.textContent=t;el.classList.add("show");clearTimeout(toast._t);toast._t=setTimeout(function(){el.classList.remove("show");},1800);}
+
+  var curDate = ds(new Date());
+  var curMonth = curDate.slice(0,7);
+
+  /* ---------- tabs ---------- */
+  var tabs = {harian:"t-harian",rekap:"t-rekap",atur:"t-atur"};
+  function showTab(n){
+    for(var k in tabs){
+      $("v-"+k).classList.toggle("hide",k!==n);
+      $(tabs[k]).setAttribute("aria-selected",k===n?"true":"false");
+    }
+    if(n==="rekap") renderRekap();
+    if(n==="harian") renderDay();
+  }
+  Object.keys(tabs).forEach(function(k){$(tabs[k]).onclick=function(){showTab(k);};});
+
+  /* ---------- harian ---------- */
+  function dayRec(d){ return state.att[d] || {}; }
+  function counts(d){
+    var r=dayRec(d), c={H:0,S:0,I:0,A:0,N:0};
+    for(var i=1;i<=STUDENTS.length;i++){ var v=r[i]; if(v) c[v]++; else c.N++; }
+    return c;
+  }
+  function renderDay(){
+    $("dateIn").value = curDate;
+    var d = parse(curDate);
+    $("dayName").textContent = longDate(d);
+    var lib = !!state.libur[curDate];
+    $("liburBtn").textContent = lib ? "Batalkan libur" : "Tandai libur";
+    $("listCard").classList.toggle("hide",lib);
+    var c = counts(curDate);
+    $("chips").innerHTML = lib ? '<span class="chip n">Libur — tidak dihitung di rekap</span>' :
+      '<span class="chip h">Hadir '+c.H+'</span><span class="chip s">Sakit '+c.S+'</span><span class="chip i">Izin '+c.I+'</span><span class="chip a">Alpha '+c.A+'</span>'+(c.N?'<span class="chip n">Belum diisi '+c.N+'</span>':'');
+    var h="";
+    var r = dayRec(curDate);
+    STUDENTS.forEach(function(nm,idx){
+      var n=idx+1, v=r[n]||"";
+      h+='<div class="stu"><span class="no">'+n+'</span><span class="nm">'+nm+'</span><span class="bt">';
+      ["H","S","I","A"].forEach(function(s){
+        h+='<button data-n="'+n+'" data-s="'+s+'" class="'+(v===s?"on":"")+'" aria-label="'+nm+' '+s+'" aria-pressed="'+(v===s)+'">'+s+'</button>';
+      });
+      h+='</span></div>';
+    });
+    $("list").innerHTML = h;
+    $("preview").classList.add("hide");
+  }
+  $("list").addEventListener("click",function(e){
+    var b=e.target.closest("button[data-n]"); if(!b) return;
+    var n=b.getAttribute("data-n"), s=b.getAttribute("data-s");
+    var r = state.att[curDate] = state.att[curDate] || {};
+    if(r[n]===s) delete r[n]; else r[n]=s;
+    if(!Object.keys(r).length) delete state.att[curDate];
+    save();
+    var y=window.scrollY; renderDay(); window.scrollTo(0,y);
+  });
+  function moveDay(k){var d=parse(curDate);d.setDate(d.getDate()+k);curDate=ds(d);curMonth=curDate.slice(0,7);renderDay();}
+  $("prevDay").onclick=function(){moveDay(-1);};
+  $("nextDay").onclick=function(){moveDay(1);};
+  $("dateIn").onchange=function(){if(this.value){curDate=this.value;curMonth=curDate.slice(0,7);renderDay();}};
+  $("allH").onclick=function(){
+    var r = state.att[curDate] = state.att[curDate] || {};
+    for(var i=1;i<=STUDENTS.length;i++){ if(!r[i]) r[i]="H"; }
+    delete state.libur[curDate];
+    save(); renderDay(); toast("Yang belum diisi ditandai hadir");
+  };
+  $("resetDay").onclick=function(){
+    if(confirm("Kosongkan absensi tanggal ini?")){delete state.att[curDate];save();renderDay();}
+  };
+  $("liburBtn").onclick=function(){
+    if(state.libur[curDate]) delete state.libur[curDate]; else state.libur[curDate]=true;
+    save(); renderDay();
+  };
+
+  function dayMessage(){
+    var d=parse(curDate), r=dayRec(curDate), c=counts(curDate);
+    var m="*ABSENSI KELAS VIII A*\n";
+    m+=longDate(d)+"\n";
+    if(state.meta.mapel) m+="Mapel: "+state.meta.mapel+"\n";
+    m+="\nHadir: "+c.H+" dari "+STUDENTS.length+" siswa\n";
+    var groups=[["S","Sakit"],["I","Izin"],["A","Alpha"]], any=false;
+    groups.forEach(function(g){
+      var list=[];
+      for(var i=1;i<=STUDENTS.length;i++){ if(r[i]===g[0]) list.push(STUDENTS[i-1]); }
+      if(list.length){
+        any=true;
+        m+="\n*"+g[1]+" ("+list.length+"):*\n";
+        list.forEach(function(nm,k){m+=(k+1)+". "+nm+"\n";});
+      }
+    });
+    if(!any){ m+="\nAlhamdulillah, semua siswa yang terdata hadir.\n"; }
+    if(c.N) m+="\n(Catatan: "+c.N+" siswa belum diisi)\n";
+    if(state.meta.guru) m+="\nGuru: "+state.meta.guru;
+    return m.trim();
+  }
+  function waUrl(text){
+    var num=(state.meta.wa||"").replace(/\D/g,"");
+    return "https://wa.me/"+num+"?text="+encodeURIComponent(text);
+  }
+  function openWA(text){ window.open(waUrl(text),"_blank","noopener"); }
+  function copyText(t){
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(function(){toast("Pesan disalin");},function(){fallbackCopy(t);});
+    } else fallbackCopy(t);
+  }
+  function fallbackCopy(t){
+    var ta=document.createElement("textarea");ta.value=t;ta.style.position="fixed";ta.style.opacity="0";
+    document.body.appendChild(ta);ta.select();
+    try{document.execCommand("copy");toast("Pesan disalin");}catch(e){toast("Gagal menyalin");}
+    document.body.removeChild(ta);
+  }
+  $("sendWA").onclick=function(){
+    if(state.libur[curDate]){toast("Tanggal ini ditandai libur");return;}
+    var c=counts(curDate);
+    if(c.N===STUDENTS.length){toast("Absensi hari ini belum diisi");return;}
+    openWA(dayMessage());
+  };
+  $("copyDay").onclick=function(){copyText(dayMessage());};
+  $("previewDay").onclick=function(){var p=$("preview");p.textContent=dayMessage();p.classList.toggle("hide");};
+
+  /* ---------- rekap ---------- */
+  function monthList(){
+    var set={}; var now=new Date();
+    set[ds(now).slice(0,7)]=1;
+    Object.keys(state.att).forEach(function(k){set[k.slice(0,7)]=1;});
+    set[curMonth]=1;
+    // sertakan Juli 2026 s.d. Juni 2027 (tahun pelajaran)
+    for(var m=7;m<=12;m++) set["2026-"+pad(m)]=1;
+    for(var m2=1;m2<=6;m2++) set["2027-"+pad(m2)]=1;
+    return Object.keys(set).sort();
+  }
+  function fillMonthSel(){
+    var sel=$("monSel"), h="";
+    monthList().forEach(function(k){
+      var a=k.split("-");
+      h+='<option value="'+k+'"'+(k===curMonth?" selected":"")+'>'+BULAN[+a[1]-1]+" "+a[0]+'</option>';
+    });
+    sel.innerHTML=h;
+  }
+  function rekapData(){
+    var a=curMonth.split("-"), y=+a[0], mo=+a[1]-1;
+    var days=new Date(y,mo+1,0).getDate();
+    var eff=[], i;
+    for(var d=1;d<=days;d++){
+      var k=curMonth+"-"+pad(d);
+      if(state.att[k] && !state.libur[k]) eff.push(k);
+    }
+    var rows=STUDENTS.map(function(nm,idx){
+      var n=idx+1, c={H:0,S:0,I:0,A:0};
+      eff.forEach(function(k){var v=(state.att[k]||{})[n]; if(v) c[v]++;});
+      var tot=c.H+c.S+c.I+c.A;
+      return {n:n,nm:nm,c:c,tot:tot,pct:tot?Math.round(c.H/tot*100):0};
+    });
+    return {y:y,mo:mo,days:days,eff:eff,rows:rows};
+  }
+  function renderRekap(){
+    fillMonthSel();
+    var R=rekapData();
+    $("rkTitle").textContent="Rekap "+BULAN[R.mo]+" "+R.y;
+    $("rkInfo").textContent="Hari efektif tercatat: "+R.eff.length+" hari. Hari libur tidak dihitung.";
+    var T={H:0,S:0,I:0,A:0};
+    R.rows.forEach(function(r){for(var k in T)T[k]+=r.c[k];});
+    $("rkChips").innerHTML='<span class="chip h">Hadir '+T.H+'</span><span class="chip s">Sakit '+T.S+'</span><span class="chip i">Izin '+T.I+'</span><span class="chip a">Alpha '+T.A+'</span>';
+
+    var h='<thead><tr><th class="n">Nama</th>';
+    for(var d=1;d<=R.days;d++){
+      var k=curMonth+"-"+pad(d), dow=new Date(R.y,R.mo,d).getDay();
+      h+='<th class="'+(state.libur[k]?"lib":(dow===0?"sun":""))+'">'+d+'</th>';
+    }
+    h+='<th>H</th><th>S</th><th>I</th><th>A</th><th>%</th></tr></thead><tbody>';
+    R.rows.forEach(function(r){
+      h+='<tr><td class="n">'+r.n+'. '+r.nm+'</td>';
+      for(var d=1;d<=R.days;d++){
+        var k=curMonth+"-"+pad(d), dow=new Date(R.y,R.mo,d).getDay();
+        var v=(state.att[k]||{})[r.n]||"";
+        var cls=state.libur[k]?"lib":(dow===0?"sun":"");
+        h+='<td class="'+cls+'">'+(state.libur[k]?"":(v?'<span class="c-'+v+'">'+v+'</span>':""))+'</td>';
+      }
+      h+='<td class="tot c-H">'+r.c.H+'</td><td class="tot c-S">'+r.c.S+'</td><td class="tot c-I">'+r.c.I+'</td><td class="tot c-A">'+r.c.A+'</td><td class="tot">'+(r.tot?r.pct+"%":"–")+'</td></tr>';
+    });
+    h+='</tbody>';
+    $("rkTable").innerHTML=h;
+
+    var s="";
+    R.rows.forEach(function(r){
+      var abs=r.c.S+r.c.I+r.c.A;
+      s+='<div class="it"><b>'+r.n+'. '+r.nm+'</b><span class="pill">'+
+        (r.tot?('H '+r.c.H+' · S '+r.c.S+' · I '+r.c.I+' · A '+r.c.A+' ('+r.pct+'%)'):'belum ada data')+'</span></div>';
+    });
+    $("sumList").innerHTML=s;
+  }
+  function rekapMessage(){
+    var R=rekapData();
+    var m="*REKAP ABSENSI KELAS VIII A*\n"+BULAN[R.mo]+" "+R.y+"\n";
+    if(state.meta.mapel) m+="Mapel: "+state.meta.mapel+"\n";
+    m+="Hari efektif: "+R.eff.length+" hari\n";
+    var T={H:0,S:0,I:0,A:0}, tt=0;
+    R.rows.forEach(function(r){for(var k in T){T[k]+=r.c[k];tt+=r.c[k];}});
+    if(tt) m+="Rata-rata kehadiran: "+Math.round(T.H/tt*100)+"%\n";
+    var abs=R.rows.filter(function(r){return r.c.S+r.c.I+r.c.A>0;});
+    if(!R.eff.length){ m+="\nBelum ada data absensi bulan ini."; }
+    else if(!abs.length){ m+="\nAlhamdulillah, semua siswa hadir penuh bulan ini."; }
+    else {
+      m+="\n*Siswa yang pernah tidak masuk:*\n";
+      abs.sort(function(a,b){return (b.c.S+b.c.I+b.c.A)-(a.c.S+a.c.I+a.c.A);});
+      abs.forEach(function(r,i){
+        var p=[]; if(r.c.S)p.push("S "+r.c.S); if(r.c.I)p.push("I "+r.c.I); if(r.c.A)p.push("A "+r.c.A);
+        m+=(i+1)+". "+r.nm+" — "+p.join(", ")+"\n";
+      });
+      var full=R.rows.length-abs.length;
+      m+="\nHadir penuh: "+full+" siswa";
+    }
+    m+="\n\nKet: S=Sakit, I=Izin, A=Alpha";
+    if(state.meta.guru) m+="\nGuru: "+state.meta.guru;
+    return m.trim();
+  }
+  function moveMon(k){
+    var a=curMonth.split("-"), d=new Date(+a[0],+a[1]-1+k,1);
+    curMonth=d.getFullYear()+"-"+pad(d.getMonth()+1); renderRekap();
+  }
+  $("prevMon").onclick=function(){moveMon(-1);};
+  $("nextMon").onclick=function(){moveMon(1);};
+  $("monSel").onchange=function(){curMonth=this.value;renderRekap();};
+  $("sendRk").onclick=function(){openWA(rekapMessage());};
+  $("copyRk").onclick=function(){copyText(rekapMessage());};
+  $("printRk").onclick=function(){window.print();};
+  function download(name,mime,content){
+    var blob=new Blob([content],{type:mime}), url=URL.createObjectURL(blob);
+    var a=document.createElement("a");a.href=url;a.download=name;document.body.appendChild(a);a.click();
+    setTimeout(function(){document.body.removeChild(a);URL.revokeObjectURL(url);},500);
+  }
+  $("csvRk").onclick=function(){
+    var R=rekapData();
+    var lines=[], head=["No","Nama"];
+    for(var d=1;d<=R.days;d++) head.push(d);
+    head=head.concat(["Hadir","Sakit","Izin","Alpha","Persen"]);
+    lines.push(head.join(","));
+    R.rows.forEach(function(r){
+      var row=[r.n,'"'+r.nm+'"'];
+      for(var d=1;d<=R.days;d++){
+        var k=curMonth+"-"+pad(d);
+        row.push(state.libur[k]?"L":((state.att[k]||{})[r.n]||""));
+      }
+      row=row.concat([r.c.H,r.c.S,r.c.I,r.c.A,r.tot?r.pct+"%":""]);
+      lines.push(row.join(","));
+    });
+    download("rekap-absensi-VIII-A-"+curMonth+".csv","text/csv;charset=utf-8","\ufeff"+lines.join("\n"));
+  };
+
+  /* ---------- pengaturan ---------- */
+  ["mapel","guru","wa"].forEach(function(k){
+    $(k).value=state.meta[k]||"";
+    $(k).oninput=function(){state.meta[k]=this.value;save();};
+  });
+  $("exp").onclick=function(){download("cadangan-absensi-VIII-A.json","application/json",JSON.stringify(state));};
+  $("impBtn").onclick=function(){$("impFile").click();};
+  $("impFile").onchange=function(){
+    var f=this.files[0]; if(!f) return;
+    var rd=new FileReader();
+    rd.onload=function(){
+      try{
+        var p=JSON.parse(rd.result);
+        if(!p||typeof p.att!=="object") throw 0;
+        state={meta:p.meta||{mapel:"",guru:"",wa:""},att:p.att,libur:p.libur||{}};
+        save();
+        ["mapel","guru","wa"].forEach(function(k){$(k).value=state.meta[k]||"";});
+        renderDay(); toast("Data berhasil dipulihkan");
+      }catch(e){toast("File cadangan tidak valid");}
+    };
+    rd.readAsText(f);
+    this.value="";
+  };
+  $("wipe").onclick=function(){
+    if(confirm("Hapus SEMUA data absensi? Tindakan ini tidak bisa dibatalkan.")){
+      state.att={};state.libur={};save();renderDay();toast("Data dihapus");
+    }
+  };
+
+  renderDay();
+  if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){});});}
+})();
+</script>
+</body>
+</html>
